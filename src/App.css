@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E7F6FF;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+

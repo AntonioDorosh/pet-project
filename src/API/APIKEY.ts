@@ -1,0 +1,1 @@
+export const APIKEY = 'https://645392a4e9ac46cedf291b79.mockapi.io/shoes';
