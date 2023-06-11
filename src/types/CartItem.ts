@@ -9,4 +9,6 @@ export interface ShoesContextType {
     setShoes: (shoes: ShoesType[]) => void;
     cartItems: CartItem[];
     addToCart: (shoesItem: ShoesType) => void;
+    total: 0,
+    removeItem: (id: number, price: number) => void;
 }

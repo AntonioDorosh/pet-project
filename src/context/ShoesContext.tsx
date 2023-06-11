@@ -16,10 +16,17 @@ export const ShoesProvider: FC<{
         setTotal(total + +shoesItem.price);
     };
 
+    const deleteItem = (id: number, price: number) => {
+        const updateCart = cartItems.filter((shoes) => shoes.id !== id);
+        setCartItems(updateCart)
+        setTotal(total - price)
+    }
+
     const shoesValue = {
         cartItems,
         addToCart,
         total,
+        deleteItem
     };
 
     return (

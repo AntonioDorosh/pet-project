@@ -10,6 +10,7 @@ export const ModalProvider: FC<{
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
     const modalValue = {
         show,
         handleClose,
