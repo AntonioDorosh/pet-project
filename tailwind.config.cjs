@@ -18,16 +18,24 @@ module.exports = {
       fontSize: {
         'customSizeText': '20px',
         'cardTextSize': '14px',
-        'cardPriceSize': '11px'
+        'cardPriceSize': '11px',
+        'title': '32px'
       },
       textColor: {
         'textGray': '#9D9D9D',
         'priceColor': '#BDBDBD'
       },
       borderRadius: {
-        'cardRadius': '40px'
+        'cardRadius': '40px',
+        'arrowBorder': '8px'
       }
     },
+    lineHeight: {
+      'title': '39px'
+    },
+    translate: {
+      'buttonTranslate': '-3px'
+    }
   },
   plugins: [],
 }

@@ -7,18 +7,19 @@ export const useShoes = () => useContext(ShoesContext);
 export const ShoesProvider: FC<{
     children?: ReactNode | undefined
 }> = props => {
-    const [shoes, setShoes] = useState<ShoesType[]>([]);
+
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [total, setTotal] = useState(0);
 
     const addToCart = (shoesItem: ShoesType) => {
-        setCartItems((prevState) => [...prevState, shoesItem])
-    }
+        setCartItems((prevState) => [...prevState, shoesItem]);
+        setTotal(total + +shoesItem.price);
+    };
 
     const shoesValue = {
-        shoes,
-        setShoes,
         cartItems,
-        addToCart
+        addToCart,
+        total,
     };
 
     return (

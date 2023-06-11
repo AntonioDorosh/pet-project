@@ -2,12 +2,15 @@ import React from 'react';
 import Navigation from "../Navigation/Navigation.tsx";
 import ModalBar from "../../UI/Modal/ModalBar.tsx";
 import {ModalProvider} from "../../context/ModalContext.tsx";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
         <header>
             <div className='flex items-center mb-marginHeaderBottom'>
-                <img className='mr-4' src="src/assets/logo.svg" alt="logo"/>
+                <Link to={'/'}>
+                    <img className='mr-4' src="src/assets/logo.svg" alt="logo"/>
+                </Link>
                 <div className='flex-1'>
                     <h2 className='uppercase font-bold text-customSizeText'>REACT
                         SNEAKERS</h2>
