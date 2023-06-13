@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import CartItems from "../CartItems/CartItems.tsx";
 
 const PurchaseList = () => {
-
     return (
         <div
             className='max-w-widthContainer mx-auto bg-white my-marginContainer p-8 rounded-3xl'>

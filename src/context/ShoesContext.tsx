@@ -22,14 +22,14 @@ export const ShoesProvider: FC<{
 
     const addToCart = (shoesItem: ShoesType) => {
         setCartItems((prevState) => [...prevState, shoesItem]);
-        setTotal(total + +shoesItem.price);
+        setTotal(prevState => prevState + +shoesItem.price);
     };
 
     const deleteItem = (id: number, price: number) => {
         const updateCart = cartItems.filter((shoes) => shoes.id !== id);
-        setCartItems(updateCart)
-        setTotal(total - price)
-    }
+        setCartItems(updateCart);
+        setTotal(prevState => prevState - price);
+    };
 
     const handleAddToCart = (shoes: ShoesType) => {
         addToCart(shoes);

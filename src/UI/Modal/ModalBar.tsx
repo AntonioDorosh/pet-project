@@ -5,12 +5,11 @@ import React from "react";
 import {useShoes} from "../../context/ShoesContext.tsx";
 
 function ModalBar() {
-    const {show, handleModalClose} = useModal();
+    const {show, handleClose} = useModal();
     const {total} = useShoes();
 
-
     return (
-        <Modal show={show} onHide={handleModalClose}>
+        <Modal show={show} onHide={handleClose}>
             <div className={'flex flex-col p-8'}>
                 <Modal.Header closeButton>
                     <Modal.Title

@@ -1,6 +1,4 @@
-import {ShoesType} from "./ShoesType.ts";
-
-export interface CartItem extends ShoesType{
+export interface CartItem{
     id: number;
     title: string;
     imgSrc: string;

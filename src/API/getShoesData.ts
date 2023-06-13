@@ -6,7 +6,7 @@ const getShoesData = async () => {
         const {data} = await axios.get(APIKEY);
         return data;
     } catch (e) {
-        console.log(e)
+        console.error(e)
     }
 };
 

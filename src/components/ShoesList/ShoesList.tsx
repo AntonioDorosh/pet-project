@@ -7,7 +7,6 @@ const ShoesList = ({shoes, text}: ShoesPropsType) => {
     const filteredShoes = filterSearch(shoes, text);
     const {handleAddToCart, addedItems, deleteItem} = useShoes();
 
-
     return (
         <>
             {filteredShoes.map((shoes) => (
