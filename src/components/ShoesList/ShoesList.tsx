@@ -1,20 +1,12 @@
-import React, {useState} from "react";
-import {ShoesPropsType, ShoesType} from "../../types/ShoesType.ts";
-import AddIcon from '@mui/icons-material/Add';
+import React from "react";
+import {ShoesPropsType} from "../../types/ShoesType.ts";
 import {filterSearch} from "../../utils/filterSearch.ts";
 import {useShoes} from "../../context/ShoesContext.tsx";
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 
 const ShoesList = ({shoes, text}: ShoesPropsType) => {
     const filteredShoes = filterSearch(shoes, text);
-    const [addedItems, setAddedItems] = useState<string[]>([]);
-    const {addToCart} = useShoes();
+    const {handleAddToCart, addedItems, deleteItem} = useShoes();
 
-
-    const handleAddToCart = (shoes: ShoesType) => {
-        addToCart(shoes);
-        setAddedItems((prevState) => [...prevState, shoes.id.toString()]);
-    };
 
     return (
         <>
@@ -25,20 +17,20 @@ const ShoesList = ({shoes, text}: ShoesPropsType) => {
                     <img className='mb-3.5' src={shoes.imgSrc}
                          alt="green nike"/>
                     <div>
-                        <div className='flex'>
-                            <div className='flex-1'>
+                        <div className='flex items-center mb-3.5'>
                         <span
                             className='text-priceColor text-cardPriceSize uppercase leading-5'>Цена:</span>
-                                <p>${shoes.price}</p>
-                            </div>
-                            <button>
-                                {addedItems.includes(shoes.id.toString()) ? (
-                                    <CheckOutlinedIcon />
-                                ) : (
-                                    <AddIcon onClick={() => handleAddToCart(shoes)} />
-                                )}
-                            </button>
+                            <p>${shoes.price}</p>
                         </div>
+                        {addedItems.includes(shoes.id.toString()) ? (
+                            <button className={'bg-red-500 text-white w-full p-2'}
+                                onClick={() => deleteItem(shoes.id, shoes.price)}>Delete</button>
+                        ) : (
+                            <button
+                                className={'bg-lime-500 w-full text-white p-2'}
+                                onClick={() => handleAddToCart(shoes)}>+ Add To
+                                Cart</button>
+                        )}
                     </div>
                 </div>
             ))}

@@ -1,8 +1,16 @@
-import {createContext, FC, ReactNode, useContext, useState} from "react";
+import React, {createContext, FC, ReactNode, useContext, useState} from "react";
 import {ShoesType} from "../types/ShoesType.ts";
 import {CartItem} from "../types/CartItem.ts";
+import {ShoesContextType} from "../types/ShoesContextType.ts";
 
-const ShoesContext = createContext<ShoesType[]>([]);
+const ShoesContext = createContext<ShoesContextType>({
+    cartItems: [],
+    addToCart: () => {},
+    total: 0,
+    deleteItem: () => {},
+    handleAddToCart: () => {},
+    addedItems: [],
+});
 export const useShoes = () => useContext(ShoesContext);
 export const ShoesProvider: FC<{
     children?: ReactNode | undefined
@@ -10,6 +18,7 @@ export const ShoesProvider: FC<{
 
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [total, setTotal] = useState(0);
+    const [addedItems, setAddedItems] = useState<string[]>([]);
 
     const addToCart = (shoesItem: ShoesType) => {
         setCartItems((prevState) => [...prevState, shoesItem]);
@@ -22,11 +31,18 @@ export const ShoesProvider: FC<{
         setTotal(total - price)
     }
 
-    const shoesValue = {
+    const handleAddToCart = (shoes: ShoesType) => {
+        addToCart(shoes);
+        setAddedItems((prevState) => [...prevState, shoes.id.toString()]);
+    };
+
+    const shoesValue: ShoesContextType = {
         cartItems,
         addToCart,
         total,
-        deleteItem
+        deleteItem,
+        handleAddToCart,
+        addedItems
     };
 
     return (
