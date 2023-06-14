@@ -12,7 +12,7 @@ const ShoesList = ({shoes, text}: ShoesPropsType) => {
             {filteredShoes.map((shoes) => (
                 <div key={shoes.id}
                      className='border max-w-cardContainer p-8 rounded-cardRadius'>
-                    <p className='max-w-textContainerCard text-cardTextSize leading-4 mb-3.5 text-center'>{shoes.title}</p>
+                    <p className='max-w-textContainerCard text-cardTextSize leading-4 mb-3.5 text-center cursor-pointer hover:underline'>{shoes.title}</p>
                     <img className='mb-3.5' src={shoes.imgSrc}
                          alt="green nike"/>
                     <div>
@@ -23,7 +23,7 @@ const ShoesList = ({shoes, text}: ShoesPropsType) => {
                         </div>
                         {addedItems.includes(shoes.id.toString()) ? (
                             <button className={'bg-red-500 text-white w-full p-2'}
-                                onClick={() => deleteItem(shoes.id, shoes.price)}>Delete</button>
+                                    onClick={() => deleteItem(shoes.id, shoes.price)}>Delete</button>
                         ) : (
                             <button
                                 className={'bg-lime-500 w-full text-white p-2'}

@@ -35,7 +35,7 @@ module.exports = {
     },
     translate: {
       'buttonTranslate': '-3px'
-    }
+    },
   },
   plugins: [],
 }
