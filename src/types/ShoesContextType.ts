@@ -8,4 +8,6 @@ export type ShoesContextType = {
     deleteItem: (id: number, price: number) => void;
     handleAddToCart: (shoes: ShoesType) => void;
     addedItems: string[];
+    increaseQuantity: (id: number) => void;
+    decreaseQuantity: (id: number) => void;
 };
