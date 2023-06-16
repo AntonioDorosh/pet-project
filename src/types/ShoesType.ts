@@ -3,6 +3,7 @@ export interface ShoesType {
     title: string;
     imgSrc: string;
     price: number;
+    quantity: number;
 }
 
 export interface ShoesPropsType {

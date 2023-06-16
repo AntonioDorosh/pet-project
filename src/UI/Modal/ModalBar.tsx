@@ -11,7 +11,7 @@ function ModalBar() {
     const {total, cartItems} = useShoes();
 
     return (
-        (cartItems.length === 0)
+        (cartItems?.length === 0)
             ? (
                 <Modal show={show} onHide={handleClose}>
                     <div className={'flex flex-col p-8'}>

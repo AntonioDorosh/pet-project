@@ -14,14 +14,7 @@ export const ShoesProvider: FC<{
     const [addedItems, setAddedItems] = useState<string[]>([]);
 
     const addToCart = (shoesItem: ShoesType) => {
-        const cartItem: CartItem = {
-            id: shoesItem.id,
-            title: shoesItem.title,
-            price: shoesItem.price,
-            quantity: 1,
-            imgSrc: shoesItem.imgSrc
-        };
-        setCartItems((prevState) => [...prevState, cartItem]);
+        setCartItems((prevState) => [...prevState, shoesItem]);
         setTotal((prevState) => prevState + +shoesItem.price);
     };
 
