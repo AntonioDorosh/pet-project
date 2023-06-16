@@ -24,8 +24,9 @@ export const ShoesProvider: FC<{
         } else {
             const newCartItems = [...cartItems, {...shoesItem, quantity: 1}];
             setCartItems(newCartItems)
-            setTotal((prevState) => prevState + +shoesItem.price)
         }
+        const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        setTotal(totalPrice)
     };
 
     const deleteItem = (id: number, price: number) => {
@@ -34,15 +35,16 @@ export const ShoesProvider: FC<{
         if (quantity === 1) {
             const newCartItems = cartItems.filter((x) => x.id !== id);
             setCartItems(newCartItems)
-            setTotal((prevState) => prevState - price)
+            const itemPrice = exist?.price ?? 0;
+            const newTotal = total - itemPrice;
+            setTotal(newTotal < 0 ? 0 : newTotal)
         } else {
             const newCartItems = cartItems.map((x) =>
-                x.id === id ? { ...x, quantity: x.quantity - 1 } : x
+                x.id === id ? {...x, quantity: x.quantity - 1} : x
             );
             setCartItems(newCartItems)
-            if (total <= 0) {
-                setTotal((prevState) => prevState - price)
-            }
+            const newTotal = total - price;
+            setTotal(newTotal < 0 ? 0 : newTotal);
         }
     };
 

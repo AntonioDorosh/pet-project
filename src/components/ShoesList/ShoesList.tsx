@@ -5,7 +5,7 @@ import {useShoes} from "../../context/ShoesContext.tsx";
 
 const ShoesList = ({shoes, text}: ShoesPropsType) => {
     const filteredShoes = filterSearch(shoes, text);
-    const {handleAddToCart} = useShoes();
+    const {handleAddToCart, addToCart} = useShoes();
 
     return (
         <>
@@ -25,6 +25,11 @@ const ShoesList = ({shoes, text}: ShoesPropsType) => {
                             className={'bg-lime-500 w-full text-white p-2 mb-3.5'}
                             onClick={() => handleAddToCart(shoes)}>+ Add To
                             Cart</button>
+                        <div>
+                            <button>-</button>
+                            <span>{shoes.quantity}</span>
+                            <button onClick={() => addToCart(shoes)}>+</button>
+                        </div>
                     </div>
                 </div>
             ))}
