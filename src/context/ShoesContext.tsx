@@ -14,15 +14,36 @@ export const ShoesProvider: FC<{
     const [addedItems, setAddedItems] = useState<string[]>([]);
 
     const addToCart = (shoesItem: ShoesType) => {
-        setCartItems((prevState) => [...prevState, shoesItem]);
-        setTotal((prevState) => prevState + +shoesItem.price);
+        const exist = cartItems.find((cartItem) => cartItem.id === shoesItem.id);
+        if (exist) {
+            const newItems = cartItems.map((x) => x.id ? {
+                ...exist,
+                quantity: x.quantity + 1
+            } : x);
+            setCartItems(newItems)
+        } else {
+            const newCartItems = [...cartItems, {...shoesItem, quantity: 1}];
+            setCartItems(newCartItems)
+            setTotal((prevState) => prevState + +shoesItem.price)
+        }
     };
 
     const deleteItem = (id: number, price: number) => {
-        setCartItems((prevState) => {
-            return prevState.filter((shoes) => shoes.id !== id);
-        });
-        setTotal((prevState) => prevState - price);
+        const exist = cartItems.find((x) => x.id === id);
+        const quantity = exist?.quantity ?? 0;
+        if (quantity === 1) {
+            const newCartItems = cartItems.filter((x) => x.id !== id);
+            setCartItems(newCartItems)
+            setTotal((prevState) => prevState - price)
+        } else {
+            const newCartItems = cartItems.map((x) =>
+                x.id === id ? { ...x, quantity: x.quantity - 1 } : x
+            );
+            setCartItems(newCartItems)
+            if (total <= 0) {
+                setTotal((prevState) => prevState - price)
+            }
+        }
     };
 
     const handleAddToCart = (shoes: ShoesType) => {

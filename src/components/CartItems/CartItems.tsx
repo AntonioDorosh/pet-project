@@ -4,6 +4,7 @@ import {useShoes} from "../../context/ShoesContext.tsx";
 
 const CartItems = () => {
     const {cartItems, deleteItem} = useShoes();
+
     return (
         <>
             {cartItems.length === 0

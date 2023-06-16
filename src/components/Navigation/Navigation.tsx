@@ -14,7 +14,7 @@ const Navigation = () => {
     return (
         <nav>
             <ul className='flex items-center'>
-                <Link to={'/purchaseList'}>
+                <Link to='/purchaseList'>
                     <li className='mr-4 hover:underline hover:text-lime-500'>
                         <span
                             className={'font-bold leading-title'}>${total}</span>
