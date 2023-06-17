@@ -29,6 +29,7 @@ export const ShoesProvider: FC<{
         setTotal(totalPrice)
     };
 
+
     const deleteItem = (id: number, price: number) => {
         const exist = cartItems.find((x) => x.id === id);
         const quantity = exist?.quantity ?? 0;
@@ -89,7 +90,7 @@ export const ShoesProvider: FC<{
         handleAddToCart,
         addedItems,
         increaseQuantity,
-        decreaseQuantity
+        decreaseQuantity,
     };
 
     return (

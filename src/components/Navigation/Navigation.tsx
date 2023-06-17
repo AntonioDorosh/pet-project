@@ -6,6 +6,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon
     from '@mui/icons-material/AccountCircleOutlined';
 import {useShoes} from "../../context/ShoesContext.tsx";
+import {formatCurrency} from "../../utils/formatCurrency.ts";
 
 const Navigation = () => {
     const {handleShow} = useModal();
@@ -17,7 +18,7 @@ const Navigation = () => {
                 <Link to='/purchaseList'>
                     <li className='mr-4 hover:underline hover:text-lime-500'>
                         <span
-                            className={'font-bold leading-title'}>${total}</span>
+                            className={'font-bold leading-title'}>{formatCurrency(total)}</span>
                     </li>
                 </Link>
                 <li className='mr-4 cursor-pointer'>
