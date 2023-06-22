@@ -1,7 +1,7 @@
 import axios from "axios";
 import {APIKEY} from "./APIKEY.ts";
 
-const getShoesData = async () => {
+export const getShoesData = async () => {
     try {
         const {data} = await axios.get(APIKEY);
         return data;
@@ -10,4 +10,3 @@ const getShoesData = async () => {
     }
 };
 
-export default getShoesData;

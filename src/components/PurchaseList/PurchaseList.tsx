@@ -1,9 +1,17 @@
 import React from 'react';
+
 import Header from "../Header/Header.tsx";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import {Link} from "react-router-dom";
 
-const PurchaseList = () => {
+import {Link} from "react-router-dom";
+import {ShoesType} from "../../types/ShoesType.ts";
+
+interface PurchaseListProps {
+    shoes: ShoesType[]
+}
+
+const PurchaseList = ({shoes}: PurchaseListProps) => {
+
     return (
         <div
             className='max-w-widthContainer mx-auto bg-white my-marginContainer p-8 rounded-3xl'>

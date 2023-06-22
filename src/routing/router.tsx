@@ -1,6 +1,10 @@
-import {createBrowserRouter} from "react-router-dom";
 import App from "../App.tsx";
 import PurchaseList from "../components/PurchaseList/PurchaseList.tsx";
+import React from 'react'
+
+import {createBrowserRouter} from "react-router-dom";
+import FavoritesPage from "../pages/FavoritesPage/FavoritesPage.tsx";
+
 
 export const router = createBrowserRouter([
     {
@@ -8,7 +12,11 @@ export const router = createBrowserRouter([
         element: <App/>
     },
     {
-        path: 'purchaseList',
+        path: '/purchaseList',
         element: <PurchaseList/>
+    },
+    {
+        path: '/favoritePage',
+        element: <FavoritesPage/>
     }
 ]);

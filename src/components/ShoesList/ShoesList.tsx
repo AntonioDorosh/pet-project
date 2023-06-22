@@ -1,4 +1,5 @@
 import React from "react";
+
 import {ShoesPropsType, ShoesType} from "../../types/ShoesType.ts";
 import {filterSearch} from "../../utils/filterSearch.ts";
 import {useShoes} from "../../context/ShoesContext.tsx";

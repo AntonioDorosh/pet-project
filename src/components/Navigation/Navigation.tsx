@@ -1,12 +1,14 @@
 import React from 'react';
+
 import {useModal} from "../../context/ModalContext.tsx";
 import {Link} from "react-router-dom";
+import {useShoes} from "../../context/ShoesContext.tsx";
+import {formatCurrency} from "../../utils/formatCurrency.ts";
+
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon
     from '@mui/icons-material/AccountCircleOutlined';
-import {useShoes} from "../../context/ShoesContext.tsx";
-import {formatCurrency} from "../../utils/formatCurrency.ts";
 
 const Navigation = () => {
     const {handleShow} = useModal();
@@ -25,9 +27,11 @@ const Navigation = () => {
                     <ShoppingCartOutlinedIcon className='hover:fill-lime-500'
                                               onClick={handleShow}/>
                 </li>
-                <li className='mr-4 cursor-pointer'>
-                    <FavoriteBorderIcon className='hover:fill-lime-500'/>
-                </li>
+                <Link to='/favoritePage'>
+                    <li className='mr-4 cursor-pointer'>
+                        <FavoriteBorderIcon className='hover:fill-lime-500'/>
+                    </li>
+                </Link>
                 <li className='cursor-pointer'><AccountCircleOutlinedIcon
                     className='hover:fill-lime-500'/></li>
             </ul>

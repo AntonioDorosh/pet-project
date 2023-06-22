@@ -1,9 +1,11 @@
-import Modal from "react-bootstrap/Modal";
-import {useModal} from "../../context/ModalContext.tsx";
-import CartItems from "../../components/CartItems/CartItems.tsx";
 import React from "react";
+
+import {useModal} from "../../context/ModalContext.tsx";
 import {useShoes} from "../../context/ShoesContext.tsx";
+import CartItems from "../../components/CartItems/CartItems.tsx";
+
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Modal from "react-bootstrap/Modal";
 import CloseIcon from '@mui/icons-material/Close';
 
 function ModalBar() {

@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from 'react';
-import {InputProps} from "../../types/ InputProps.ts";
 
+import {InputProps} from "../../types/ InputProps.ts";
 
 const Input = ({text, setText}: InputProps) => {
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
